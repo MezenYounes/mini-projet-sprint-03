@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajout des Camions</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+</head>
+<body>
+    <div th:replace="template"></div>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                Modifier des Camions
+            </div>
+            <div class="card-body">
+                <form th:action="@{saveCamion}" method="post">
+                    <div class="form-group">
+                        <label class="control-label" hidden>ID Camion :</label>
+                        <input type="hidden" name="idcamion" class="form-control" th:value="${camion.idcamion}" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Nom camion :</label>
+                        <input type="text" name="nomcamion" class="form-control" th:value="${camion.nomcamion}" />
+                        <span th:errors="${camion.nomcamion}" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Prix camion :</label>
+                        <input type="text" name="prixcamion" class="form-control" th:value="${camion.prixcamion}" />
+                        <span th:errors="${camion.prixcamion}" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Description :</label>
+                        <input type="text" name="description" class="form-control" th:value="${camion.description}" />
+                        <span th:errors="${camion.description}" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Valider</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
